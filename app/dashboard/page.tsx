@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   description: "Panel de control para métricas de Lead Capture Page de Casino",
 }
 
+
+
 export default function DashboardPage() {
+  
   return <DashboardMetrics />
 }

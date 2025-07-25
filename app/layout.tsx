@@ -4,6 +4,7 @@ import { ReduxProvider } from '@/components/providers/ReduxProvider'
 import { DateProvider } from '@/contexts/DateContext'
 import { QueryProvider } from '@/components/providers/QueryProvider'
 import { ThemeProvider } from '@/components/theme-provider'
+import { AuthProvider } from '@/contexts/auth-context'
 
 export const metadata: Metadata = {
   title: 'Casino Dashboard',
@@ -28,7 +29,9 @@ export default function RootLayout({
                 enableSystem
                 disableTransitionOnChange
               >
-                {children}
+                <AuthProvider>
+                  {children}
+                </AuthProvider>
               </ThemeProvider>
             </QueryProvider>
           </DateProvider>

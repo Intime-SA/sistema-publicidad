@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import {
   BarChart,
   Clock,
@@ -35,9 +35,19 @@ import HourlyVisitorsChart from "./charts/hourly-visitors-chart"
 import { KpisGenerales } from "./kpis-generales"
 import Link from "next/link"
 import Header from "./header"
+import { useAuth } from "@/contexts/auth-context"
+import { useRouter } from "next/navigation"
 
 export default function DashboardMetrics() {
-  const [dateRange, setDateRange] = useState("7d")
+
+  const { user, loading } = useAuth()
+  const router = useRouter()
+
+  useEffect(() => {
+    if (!loading && !user) {
+      router.push("/login")
+    }
+  }, [user, loading, router])
 
   return (
     <div className="flex min-h-screen flex-col">
