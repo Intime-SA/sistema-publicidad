@@ -25,7 +25,7 @@ export interface KpisResponse {
 export interface KpisQueryParams {
   from: string;
   to: string;
-  pageId: string;
+  pageId?: string;
 }
 
 // Configuración base de axios

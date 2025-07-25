@@ -18,9 +18,10 @@ export default function TimeOnSiteChart() {
           color: "hsl(var(--chart-3))",
         },
       }}
+      className="min-h-[150px] w-full"
     >
-      <ResponsiveContainer width="100%" height="100%">
-        <BarChart data={data} margin={{ top: 5, right: 10, left: 10, bottom: 20 }}>
+      <ResponsiveContainer width="100%" height={300}>
+        <BarChart data={data} margin={{ top: 20, right: 30, left: 20, bottom: 20 }}>
           <XAxis dataKey="device" tickLine={false} axisLine={false} tickMargin={10} className="text-xs" />
           <YAxis
             tickLine={false}

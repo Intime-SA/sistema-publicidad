@@ -7,10 +7,16 @@ export const useKpis = () => {
   const { dateRange } = useDateRange();
   const { selectedPage } = useAppSelector((state) => state.pageSelector);
 
-  const queryParams = {
+  type KpisQueryParams = {
+    from: string;
+    to: string;
+    pageId?: string;
+  };
+
+  const queryParams: KpisQueryParams = {
     from: dateRange.from,
     to: dateRange.to,
-    pageId: selectedPage?._id || '',
+    pageId: selectedPage?._id !== 'all' ? selectedPage?._id : undefined,
   };
 
   const {
@@ -22,7 +28,7 @@ export const useKpis = () => {
     ['kpis', queryParams],
     () => getKpis(queryParams),
     {
-      enabled: !!selectedPage?._id && !!dateRange.from && !!dateRange.to,
+      enabled: !!dateRange.from && !!dateRange.to,
       refetchOnWindowFocus: false,
       staleTime: 5 * 60 * 1000, // 5 minutos
       cacheTime: 10 * 60 * 1000, // 10 minutos

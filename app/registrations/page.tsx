@@ -76,17 +76,6 @@ export default function RegistrationsPage() {
             </Card>
           </div>
 
-          <Card>
-            <CardHeader>
-              <CardTitle>Tasa de conversión</CardTitle>
-              <CardDescription>Porcentaje de visitantes que completan cada etapa del proceso</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="h-[300px]">
-                <ConversionChart />
-              </div>
-            </CardContent>
-          </Card>
 
           <Card>
             <CardHeader>

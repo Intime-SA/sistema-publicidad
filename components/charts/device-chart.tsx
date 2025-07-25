@@ -26,6 +26,7 @@ export default function DeviceChart() {
           color: "hsl(var(--chart-3))",
         },
       }}
+      className="min-h-[150px] w-full"
     >
       <ResponsiveContainer width="100%" height="100%">
         <PieChart>

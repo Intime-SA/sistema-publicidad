@@ -1,31 +1,22 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import {
   BarChart,
   Clock,
   Database,
-  Download,
   Globe,
   Home,
   Laptop,
-  PieChart,
-  RefreshCw,
   Settings,
   Smartphone,
   Tablet,
   Users,
-  Wallet,
-  MessageSquare,
 } from "lucide-react"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Input } from "@/components/ui/input"
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { Badge } from "@/components/ui/badge"
 import VisitorsChart from "./charts/visitors-chart"
 import DeviceChart from "./charts/device-chart"
 import ConversionChart from "./charts/conversion-chart"
@@ -126,13 +117,13 @@ export default function DashboardMetrics() {
 
               <TabsContent value="overview" className="space-y-4">
                 <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
-                  <Card className="lg:col-span-4">
+                  <Card className="lg:col-span-4 p-4">
                     <CardHeader>
                       <CardTitle>Visitantes por Día</CardTitle>
                       <CardDescription>Número total de visitantes únicos por día</CardDescription>
                     </CardHeader>
                     <CardContent className="px-2">
-                      <div className="h-[300px]">
+                      <div className="h-[400px]">
                         <VisitorsChart />
                       </div>
                     </CardContent>
@@ -143,32 +134,25 @@ export default function DashboardMetrics() {
                       <CardDescription>Porcentaje de visitantes por tipo de dispositivo</CardDescription>
                     </CardHeader>
                     <CardContent>
-                      <div className="h-[300px]">
+                      <div className="h-[150px]">
                         <DeviceChart />
+                      </div>
+                      <div className="h-[100px] mt-10 -ml-12">
+                        <TimeOnSiteChart />
                       </div>
                     </CardContent>
                   </Card>
                 </div>
 
-                <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
-                  <Card className="lg:col-span-3">
-                    <CardHeader>
-                      <CardTitle>Tiempo en Sitio</CardTitle>
-                      <CardDescription>Tiempo promedio que los usuarios pasan en la plataforma</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="h-[300px]">
-                        <TimeOnSiteChart />
-                      </div>
-                    </CardContent>
-                  </Card>
+                <div className="grid gap-4 md:grid-cols-1 lg:grid-cols-1">
+                  
                   <Card className="lg:col-span-4">
                     <CardHeader>
                       <CardTitle>Tasa de Conversión</CardTitle>
                       <CardDescription>Porcentaje de visitantes que completan el registro</CardDescription>
                     </CardHeader>
                     <CardContent>
-                      <div className="h-[300px]">
+                      <div className="h-[600px]">
                         <ConversionChart />
                       </div>
                     </CardContent>

@@ -1,7 +1,5 @@
 import { Download, RefreshCw, Wallet } from 'lucide-react'
-import { Select, SelectContent, SelectTrigger, SelectValue } from './ui/select'
 import React from 'react'
-import { SelectItem } from './ui/select'
 import { PageSelector } from './filters/pages-selector'
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
 import { Button } from './ui/button'
@@ -17,14 +15,6 @@ const Header = () => {
     <div className="ml-auto flex items-center gap-4">
       <PageSelector />
       <DateRangePicker />
-      <Button variant="outline" size="icon">
-        <RefreshCw className="h-4 w-4" />
-        <span className="sr-only">Actualizar datos</span>
-      </Button>
-      <Button variant="outline" size="icon">
-        <Download className="h-4 w-4" />
-        <span className="sr-only">Descargar reporte</span>
-      </Button>
       <Avatar>
         <AvatarImage src="/placeholder-user.jpg" alt="Usuario" />
         <AvatarFallback>AD</AvatarFallback>

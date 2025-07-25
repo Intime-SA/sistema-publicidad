@@ -42,10 +42,11 @@ export const PageSelector = () => {
     );
   }
 
-  if (!hasAvailablePages) {
+  if (!selectedPage) {
+    // Lógica para manejar el caso sin página seleccionada
     return (
       <div className="flex items-center gap-2 px-3 py-2 border rounded-md">
-        <span className="text-sm text-muted-foreground">No hay páginas disponibles</span>
+        <span className="text-sm text-muted-foreground">Selecciona una página para continuar</span>
       </div>
     );
   }
@@ -97,6 +98,25 @@ export const PageSelector = () => {
             </div>
           </DropdownMenuItem>
         ))}
+        <DropdownMenuItem
+          key="all"
+          onClick={() => {
+            selectPage({
+              _id: 'all',
+              name: 'Todas las páginas',
+              status: true,
+              access_token: '', // Valor por defecto
+              pixel_id: '', // Valor por defecto
+              url: '', // Valor por defecto
+            });
+            setIsOpen(false);
+          }}
+          className="flex items-center justify-between cursor-pointer"
+        >
+          <div className="flex flex-col items-start">
+            <span className="font-medium">Todas las páginas</span>
+          </div>
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );

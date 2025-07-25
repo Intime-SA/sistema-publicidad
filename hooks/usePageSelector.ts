@@ -50,6 +50,7 @@ export const usePageSelector = () => {
       dispatch(setLoading(true));
       dispatch(setError(null));
       
+      // No enviar pageId si no hay página seleccionada
       const response = await getPages(params);
       return response;
     } catch (err) {
